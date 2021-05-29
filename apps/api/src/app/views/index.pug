@@ -1,0 +1,17 @@
+html
+  head
+    title= 'Heroes list'
+
+  body
+    h1= 'Heroes list'
+    form(method='post' action='/pug/heroes/add')
+      label Name:
+      input.form-control(name='name' type='text')
+      br
+      input(type='submit' value='Submit')
+  table
+    for hero in heroesList
+      tr
+        td= hero.id
+        td
+          a(href='/hero/'+hero.id) #{hero.name}
