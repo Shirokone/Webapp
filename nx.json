@@ -25,6 +25,9 @@
     "toh-e2e": {
       "tags": [],
       "implicitDependencies": ["toh"]
+    },
+    "api": {
+      "tags": []
     }
   }
 }
