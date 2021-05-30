@@ -63,4 +63,16 @@ export class HeroRepository {
       })
     })
   }
+
+  deleteHero(id) {
+    return new Promise((resolve, reject) => {
+      connection.query("DELETE FROM heroes WHERE id="+id, (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(true);
+        }
+      });
+    });
+  }
 }

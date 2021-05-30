@@ -9,13 +9,15 @@ export const views = (app: any) => {
     });
   });
 
-  app.get('/pug/hero/:id', (req, res) => {
+
+
+  app.get('/pug/heroes/:id', (req, res) => {
     heroRepository.getHero(req.params.id).then((hero)=>{
       res.render('edit_hero', {hero: hero});
     })
   });
 
-  app.post('/pug/heroes/add', (req, res) => {
+  app.post('/pug/heroes', (req, res) => {
     heroRepository.addHero(req.body).then((v) => {
       if (v == true) {
         res.redirect('/pug/index');
@@ -23,8 +25,16 @@ export const views = (app: any) => {
     });
   });
 
-  app.post('/pug/hero/:id/edit', (req, res) => {
+  app.post('/pug/heroes/:id', (req, res) => {
     heroRepository.editHero(req.params.id, req.body).then((v) => {
+      if (v == true) {
+        res.redirect('/pug/index');
+      }
+    });
+  });
+
+  app.get('/pug/hero/:id/delete', (req, res) => {
+    heroRepository.deleteHero(req.params.id).then((v) => {
       if (v == true) {
         res.redirect('/pug/index');
       }

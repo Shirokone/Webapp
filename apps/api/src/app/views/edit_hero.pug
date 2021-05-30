@@ -2,7 +2,7 @@ extends layout
 block content
   a(href='/pug/index' class="btn btn-info") Back
   h1= 'Hero Details'
-  form(method='POST' action='/pug/hero/'+hero.id+'/edit')
+  form(method='post' action='/pug/heroes/'+hero.id)
     label Name:
     br
     input.form-control(name='name' type='text' value=hero.name)

@@ -9,7 +9,7 @@ export const heroes = (app: any) => {
     });
   });
 
-  app.get('/api/hero/:id', (req, res) => {
+  app.get('/api/heroes/:id', (req, res) => {
     heroRepository.getHero(req.params.id).catch(error=>{
       res.status(400);
     }).then((hero)=>{
@@ -17,16 +17,24 @@ export const heroes = (app: any) => {
     });
   });
 
-  app.post('/api/heroes/add', (req, res) => {
+  app.post('/api/heroes', (req, res) => {
     heroRepository.addHero(req.body).then((v) => {
+      if (v == true) {
+        res.sendStatus(201);
+      }
+    });
+  });
+
+  app.put('/api/heroes/:id', (req, res) => {
+    heroRepository.editHero(req.params.id, req.body).then((v) => {
       if (v == true) {
         res.sendStatus(200);
       }
     });
   });
 
-  app.post('/api/hero/:id/edit', (req, res) => {
-    heroRepository.editHero(req.params.id, req.body).then((v) => {
+  app.delete('/api/heroes/:id', (req, res) => {
+    heroRepository.deleteHero(req.params.id).then((v) => {
       if (v == true) {
         res.sendStatus(200);
       }

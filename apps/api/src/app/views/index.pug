@@ -1,7 +1,7 @@
 extends layout
 block content
   h1= 'Heroes list'
-  form(method='post' action='/pug/heroes/add')
+  form(method='post' action='/pug/heroes')
     label Name:
     br
     input.form-control(name='name' type='text')
@@ -12,6 +12,6 @@ block content
       tr
         td= hero.id
         td
-          a(href='/pug/hero/'+hero.id) #{hero.name}
+          a(href='/pug/heroes/'+hero.id) #{hero.name}
         td
-          button(type='button' class="btn btn-danger") Delete
+          a(class="btn btn-danger" href='/pug/hero/'+hero.id+'/delete') Delete
