@@ -1,10 +1,14 @@
 extends layout
 block content
-  a(href='/pug/index' class="btn btn-info") Back
-  h1= 'Hero Details'
+  div(class='container-fluid')
+    div(class='row')
+      div(class='col-1 align-self-center')
+        a(href='/pug/index' class="btn btn-info") Back
+      div(class='col-11')
+        p(class='display-3') Hero Details
   form(method='post' action='/pug/heroes/'+hero.id)
-    label Name:
+    label Name
     br
-    input.form-control(name='name' type='text' value=hero.name)
+    input(class='form-control' name='name' type='text' value=hero.name)
     br
     input(type='submit' value='Submit' class="btn btn-primary")

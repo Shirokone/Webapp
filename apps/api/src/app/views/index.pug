@@ -1,17 +1,27 @@
 extends layout
 block content
-  h1= 'Heroes list'
-  form(method='post' action='/pug/heroes')
-    label Name:
-    br
-    input.form-control(name='name' type='text')
-    br
-    input(type='submit' value='Submit' class="btn btn-primary")
-  table(class='table')
-    for hero in heroesList
-      tr
-        td= hero.id
-        td
-          a(href='/pug/heroes/'+hero.id) #{hero.name}
-        td
-          a(class="btn btn-danger" href='/pug/hero/'+hero.id+'/delete') Delete
+  p(class='display-3') Heroes list
+  div(class='container-fluid')
+    div(class='row')
+      div(class='col-10')
+        table(class='table table-bordered')
+          thead
+            tr(class="table-primary")
+              th #
+              th Name
+              th Actions
+          for hero in heroesList
+            tr
+              td= hero.id
+              td= hero.name
+              td(style='width: 11%')
+               a(class="btn btn-primary mr-2" href='/pug/heroes/'+hero.id) Edit
+                a(class="btn btn-danger" href='/pug/hero/'+hero.id+'/delete') Delete
+      div(class='col-2')
+        h2= 'Add Hero'
+        form(method='post' action='/pug/heroes')
+          label Name
+          br
+          input(class='form-control' name='name' type='text')
+          br
+          input(type='submit' value='Add' class="btn btn-primary")
