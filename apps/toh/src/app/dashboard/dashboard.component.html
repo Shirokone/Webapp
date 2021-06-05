@@ -1,8 +1,15 @@
 <h2>Top Heroes</h2>
-<div class="heroes-menu">
-  <a *ngFor="let hero of heroes" routerLink="/details/{{hero.id}}">
-    {{hero.name}}
-  </a>
+<div class="row">
+  <div class="col-3 d-flex justify-content-center" *ngFor="let hero of heroes">
+    <div class="card text-center" style="width: 18rem;">
+      <p class="card-title">{{hero.name}}</p>
+      <div class="card-body">
+        <a class="btn btn-primary" routerLink="/details/{{hero.id}}">
+          Hero Details
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
-
+<hr>
 <toh-hero-search></toh-hero-search>
