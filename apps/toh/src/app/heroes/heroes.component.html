@@ -1,0 +1,23 @@
+<div class="m-3">
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName />
+  <button class="btn btn-primary ml-2" (click)="add(heroName.value); heroName.value=''">
+    Add hero
+  </button>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr class="table-primary">
+      <th>#</th>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let hero of heroes">
+    <td>{{hero.id}}</td>
+    <td>{{hero.name}}</td>
+    <td><a class="btn btn-primary mr-2" routerLink="/details/{{hero.id}}">Details</a>
+      <button class="btn btn-danger" (click)="delete(hero)">Delete</button>
+    </td>
+  </tr>
+</table>

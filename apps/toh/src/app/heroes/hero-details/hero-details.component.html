@@ -1,0 +1,19 @@
+<div *ngIf="hero">
+  <div class='container-fluid'>
+    <div class='row'>
+      <div class='col-1 align-self-center'>
+        <button (click)="goBack()" class="btn btn-info">Go back</button>
+      </div>
+      <div class='col-11'>
+        <p class="display-3">{{hero.name | uppercase}} Details</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-2">
+    <div><span>id: </span>{{hero.id}}</div>
+    <label for="name">Hero name: </label>
+    <input class="form-control" id="name" [(ngModel)]="hero.name" placeholder="name">
+
+  </div>
+  <button class="btn btn-primary m-3" (click)="save()">save</button>
+</div>
